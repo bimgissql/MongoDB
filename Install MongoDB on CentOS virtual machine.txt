@@ -1,0 +1,49 @@
+1. Check firewall state:
+=====================================================
+
+firewall-cmd --state
+
+
+2. Update yum packages
+=====================================================
+
+yum update -y
+
+
+3. Create yum package
+=====================================================
+
+vim /etc/yum.repos.d/mongodb-org.repo
+
+Add following lines:
+-----------------------------------------------------
+[mongodb-org-3.4]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-3.4.asc
+-----------------------------------------------------
+
+
+4. Install MongoDB
+=====================================================
+
+yum install mongodb-org
+
+
+5. Start MongoDB
+=====================================================
+
+systemctl start mongod
+
+
+6. Enable auto start
+=====================================================
+
+systemctl enable mongod
+
+
+
+
+
